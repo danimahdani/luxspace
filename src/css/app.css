@@ -27,17 +27,25 @@
     left: 50%;
   }
 
-  @screen sm {
-    .hero .hero-image,
-    .hero .hero-caption {
-      min-height: 90vh;      
-    }
-    .hero .hero-cta {
-      @apply w-12 h-12;
-      transform: translateX(-75%) translateY(=50%);
-      background-size: 37.5%;
-    }
+  .hero .hero-image,
+  .hero .hero-caption {
+    min-height: 90vh;
   }
+
+  .hero .hero-cta {
+    @apply w-12 h-12;
+    transform: translateX(-75px) translateY(-50%);
+    background-size: 37.5%;
+  }
+
+  .card .card-shadow {
+    @apply transition duration-300 shadow-none h-full;
+  }
+
+  .card:hover .card-shadow {
+    @apply shadow-lg;
+  }
+}
 
    @screen md {
      .hero .hero-image,
@@ -50,5 +58,14 @@
        background-size: auto;
      }
    }
-  
-}
+
+   @layer utilities {
+     .stretched-link {
+       @apply absolute inset-0 z-10 cursor-pointer;
+     }
+
+     .grid {
+       grid-auto-flow: dense;
+       grid-auto-rows: minmax(180px, auto)
+     }
+   }
